@@ -9,6 +9,8 @@ class ItogHW{
         Console.WriteLine("Исходный массив: ");
         writeToConsoleArray(mass);
         Console.WriteLine("Преобразованный массив: ");
+        string[] modMass = modifMassive(mass);
+        writeToConsoleArray(modMass);
     }
 
 
@@ -19,7 +21,7 @@ class ItogHW{
         string [ ] array = new string [endI];
 
         for(int i = 0; i < endI; i++){
-            int randCountChars = rand.Next(0, 7);
+            int randCountChars = rand.Next(1, 7);
             int count = 0;
             while (count < randCountChars){
                 array[i] = array[i] + (char)rand.Next(0x0020, 0x007E);
@@ -37,17 +39,14 @@ class ItogHW{
 
     static string[ ] modifMassive(string [] array){
         int count = 0;
-        foreach(string word in array){
-             if (word.Length) 
+        string[] modArray = new string [array.Length]; 
+        foreach(string word in array)
+            if (word.Length <=3 ){
+                modArray[count] = word;
                 count++;
+            }         
                 
-            if (count == 0){
-
-            } 
-
-
-           
-        }        
+        return  modArray;
     }
 
 }
